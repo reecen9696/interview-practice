@@ -1,0 +1,64 @@
+{
+  "Variables and Memory": {
+    "flashcards": [
+      {
+        "question": "What is memory?",
+        "answer": "The place in which we store data"
+      },
+      {
+        "question": "What is a thread of execution?",
+        "answer": "Going through code line-by-line and running each line. Saves data like strings & arrays in memory."
+      }
+    ],
+    "multipleChoice": [
+      {
+        "question": "What is stored in memory?",
+        "options": ["Instructions", "Data", "Syntax", "Keywords"],
+        "correctAnswer": "Data"
+      }
+    ],
+    "fillInTheGap": [
+      {
+        "sentence": "The ____ of execution runs code line by line.",
+        "gaps": ["thread"]
+      },
+      {
+        "sentence": "A constant called ____ is assigned the number 3.",
+        "gaps": ["num"]
+      }
+    ],
+    "codeWalkthrough": [
+      {
+        "codeLines": [
+          {
+            "code": "const num = 3;",
+            "explanation": [
+              "1. Define a constant called `num`.",
+              "2. Assign the number `3` to it."
+            ]
+          },
+          {
+            "code": "function multiplyBy2(inputNumber) {",
+            "explanation": [
+              "1. Declare a function named `multiplyBy2` with one parameter `inputNumber`.",
+              "2. This function is stored in memory at runtime."
+            ]
+          },
+          {
+            "code": "const result = inputNumber * 2;",
+            "explanation": [
+              "1. Multiply the input number by 2.",
+              "2. Store the result in a constant called `result`."
+            ]
+          },
+          {
+            "code": "return result;",
+            "explanation": [
+              "1. Return the value stored in `result` to the caller."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
