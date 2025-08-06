@@ -24,6 +24,14 @@
       {
         "question": "What is it called when we make a function reusable by using inputs?",
         "answer": "• Generalising the function\n• Example: using parameters instead of hardcoded values"
+      },
+      {
+        "question": "What's the difference between a parameter and an argument?",
+        "answer": "• A parameter is a placeholder defined in the function declaration.\n• An argument is the actual value passed into the function when it's called.\n\nExample:\n\nfunction greet(name) {   // 'name' is the parameter\n  console.log(\"Hi \" + name);\n}\n\ngreet(\"Reece\");          // 'Reece' is the argument"
+      },
+      {
+        "question": "What are these called: ()?",
+        "answer": "Parentheses"
       }
     ],
     "multipleChoice": [
@@ -61,6 +69,16 @@
         "question": "What is generalising a function?",
         "options": ["Creating a function that runs automatically", "Using return instead of console.log", "Making the function reusable by using parameters", "Declaring the function globally"],
         "correctAnswer": "Making the function reusable by using parameters"
+      },
+      {
+        "question": "Which of these would go into global memory?",
+        "options": ["A function declared at the top level", "A parameter inside a function", "A variable declared with let inside a block", "A constant declared inside a loop"],
+        "correctAnswer": "A function declared at the top level"
+      },
+      {
+        "question": "Which of these would go into local memory?",
+        "options": ["A global constant", "A variable declared inside a function", "A function declared at the global scope", "A script tag in the HTML file"],
+        "correctAnswer": "A variable declared inside a function"
       }
     ],
     "fillInTheGap": [
@@ -141,6 +159,256 @@
               "Create a new Execution Context",
               "Multiply 10 by 2 and return the result",
               "Assign the returned value to newOutput"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "copyArrayAndMultiplyBy2",
+        "codeLines": [
+          {
+            "code": "function copyArrayAndMultiplyBy2(array) {",
+            "explanation": [
+              "Store the function copyArrayAndMultiplyBy2 in global memory with the parameter 'array'"
+            ]
+          },
+          {
+            "code": "  const output = [];",
+            "explanation": [
+              "Define a constant output and assign it an empty array (in local memory)"
+            ]
+          },
+          {
+            "code": "  for (let i = 0; i < array.length; i++) {",
+            "explanation": [
+              "Loop through the array starting from index 0 up to array.length"
+            ]
+          },
+          {
+            "code": "    output.push(array[i] * 2);",
+            "explanation": [
+              "Multiply each element by 2",
+              "Push the result into the output array"
+            ]
+          },
+          {
+            "code": "  }",
+            "explanation": []
+          },
+          {
+            "code": "  return output;",
+            "explanation": [
+              "Return the output array to the caller"
+            ]
+          },
+          {
+            "code": "}",
+            "explanation": []
+          },
+          {
+            "code": "const myArray = [1, 2, 3];",
+            "explanation": [
+              "Define a constant 'myArray' with the values [1,2,3]"
+            ]
+          },
+          {
+            "code": "const result = copyArrayAndMultiplyBy2(myArray);",
+            "explanation": [
+              "Define constant 'result'",
+              "Call copyArrayAndMultiplyBy2 and pass in myArray",
+              "Create a new execution context for the function call"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "copyArrayAndManipulate",
+        "codeLines": [
+          {
+            "code": "function copyArrayAndManipulate(array, instructions) {",
+            "explanation": [
+              "Store the function in global memory",
+              "Takes two parameters: array and instructions (a function)"
+            ]
+          },
+          {
+            "code": "  const output = [];",
+            "explanation": [
+              "Define a constant output and assign an empty array"
+            ]
+          },
+          {
+            "code": "  for (let i = 0; i < array.length; i++) {",
+            "explanation": [
+              "Loop through the array from index 0 to array.length"
+            ]
+          },
+          {
+            "code": "    output.push(instructions(array[i]));",
+            "explanation": [
+              "For each element in the array, apply the 'instructions' function",
+              "Push the result into the output array"
+            ]
+          },
+          {
+            "code": "  }",
+            "explanation": []
+          },
+          {
+            "code": "  return output;",
+            "explanation": [
+              "Return the output array"
+            ]
+          },
+          {
+            "code": "}",
+            "explanation": []
+          },
+          {
+            "code": "function multiplyBy2(input) { return input * 2; }",
+            "explanation": [
+              "Define multiplyBy2 in global memory",
+              "This function takes a number and returns it multiplied by 2"
+            ]
+          },
+          {
+            "code": "const result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);",
+            "explanation": [
+              "Call copyArrayAndManipulate with array [1, 2, 3] and function multiplyBy2",
+              "Create a new execution context with local memory:",
+              "- array = [1, 2, 3]",
+              "- instructions = multiplyBy2",
+              "- output = []"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "reduce",
+        "codeLines": [
+          {
+            "code": "function reduce(array, howToCombine, buildingUp) {",
+            "explanation": [
+              "Store the function reduce in global memory",
+              "Takes three parameters:",
+              "- array: the array to process",
+              "- howToCombine: function that combines elements",
+              "- buildingUp: initial value for accumulation"
+            ]
+          },
+          {
+            "code": "  for (let i = 0; i < array.length; i++) {",
+            "explanation": [
+              "Loop through each element of the array from index 0"
+            ]
+          },
+          {
+            "code": "    buildingUp = howToCombine(buildingUp, array[i]);",
+            "explanation": [
+              "Call howToCombine function with current buildingUp value and array element",
+              "Update buildingUp with the returned result",
+              "This accumulates the result through each iteration"
+            ]
+          },
+          {
+            "code": "  }",
+            "explanation": []
+          },
+          {
+            "code": "  return buildingUp;",
+            "explanation": [
+              "Return the final accumulated value"
+            ]
+          },
+          {
+            "code": "}",
+            "explanation": []
+          },
+          {
+            "code": "function add(a, b) { return a + b; }",
+            "explanation": [
+              "Define helper function 'add' that takes two parameters and returns their sum"
+            ]
+          },
+          {
+            "code": "const numbers = [1, 2, 3, 4];",
+            "explanation": [
+              "Define constant 'numbers' with array [1, 2, 3, 4]"
+            ]
+          },
+          {
+            "code": "const sum = reduce(numbers, add, 0);",
+            "explanation": [
+              "Call reduce with:",
+              "- array: [1, 2, 3, 4]", 
+              "- howToCombine: add function",
+              "- buildingUp: 0 (starting value)",
+              "Create new execution context and process each element:",
+              "First iteration: 0 + 1 = 1",
+              "Second iteration: 1 + 2 = 3", 
+              "Third iteration: 3 + 3 = 6",
+              "Fourth iteration: 6 + 4 = 10",
+              "Return 10"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "pipe",
+        "codeLines": [
+          {
+            "code": "function pipe(input, ...functions) {",
+            "explanation": [
+              "Store function 'pipe' in global memory",
+              "Takes an input value and any number of functions using rest parameters (...functions)",
+              "The ...functions creates an array of all arguments after the first one"
+            ]
+          },
+          {
+            "code": "  return functions.reduce((acc, fn) => fn(acc), input);",
+            "explanation": [
+              "Use the reduce method on the functions array",
+              "Start with 'input' as the initial accumulator value",
+              "For each function in the array:",
+              "- Apply the function to the current accumulator value",
+              "- The result becomes the new accumulator",
+              "This chains the functions together, passing output of one as input to the next"
+            ]
+          },
+          {
+            "code": "}",
+            "explanation": []
+          },
+          {
+            "code": "function multiplyBy2(x) { return x * 2; }",
+            "explanation": [
+              "Define helper function that multiplies input by 2"
+            ]
+          },
+          {
+            "code": "function add3(x) { return x + 3; }",
+            "explanation": [
+              "Define helper function that adds 3 to input"
+            ]
+          },
+          {
+            "code": "function divideBy4(x) { return x / 4; }",
+            "explanation": [
+              "Define helper function that divides input by 4"
+            ]
+          },
+          {
+            "code": "const result = pipe(5, multiplyBy2, add3, divideBy4);",
+            "explanation": [
+              "Call pipe with input 5 and three functions",
+              "Create new execution context with:",
+              "- input: 5",
+              "- functions: [multiplyBy2, add3, divideBy4]",
+              "Execute the chain:",
+              "Step 1: multiplyBy2(5) = 10",
+              "Step 2: add3(10) = 13", 
+              "Step 3: divideBy4(13) = 3.25",
+              "Return 3.25"
             ]
           }
         ]

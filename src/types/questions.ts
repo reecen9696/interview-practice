@@ -21,6 +21,7 @@ export interface CodeLine {
 }
 
 export interface CodeWalkthrough {
+  title?: string;
   codeLines: CodeLine[];
 }
 
