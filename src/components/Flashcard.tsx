@@ -28,7 +28,7 @@ export default function Flashcard({ flashcard }: FlashcardProps) {
                 {flashcard.question}
               </p>
             </div>
-            <div className="bg-[#1E1C8B] text-white text-center py-3 text-sm font-medium rounded-b-lg">
+            <div className="bg-[#2F49F5] text-white text-center py-3 text-sm font-medium rounded-b-lg">
               Click the card to flip
             </div>
           </div>

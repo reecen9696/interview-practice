@@ -42,7 +42,7 @@ export default function CodeWalkthrough({ codeWalkthrough }: CodeWalkthroughProp
           {!allExpanded && (
             <button
               onClick={expandAll}
-              className="px-3 py-1 text-sm bg-[#1E1C8B] text-white rounded hover:bg-[#16155C] transition-colors"
+              className="px-3 py-1 text-sm bg-[#2F49F5] text-white rounded hover:bg-[#253FCC] transition-colors"
             >
               Expand All
             </button>

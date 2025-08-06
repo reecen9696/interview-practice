@@ -125,7 +125,7 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
                 key={index}
                 draggable
                 onDragStart={() => handleDragStart(word)}
-                className="px-3 py-1 bg-[#1E1C8B] text-white rounded-lg cursor-move hover:bg-[#16155C] transition-colors select-none"
+                className="px-3 py-1 bg-[#2F49F5] text-white rounded-lg cursor-move hover:bg-[#253FCC] transition-colors select-none"
               >
                 {word}
               </span>
