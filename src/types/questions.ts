@@ -12,6 +12,7 @@ export interface MultipleChoice {
 export interface FillInTheGap {
   sentence: string;
   gaps: string[];
+  options: string[];
 }
 
 export interface CodeLine {

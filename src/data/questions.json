@@ -2,29 +2,87 @@
   "Variables and Memory": {
     "flashcards": [
       {
-        "question": "What is memory?",
-        "answer": "The place in which we store data"
+        "question": "What is the thread of execution?",
+        "answer": "• It's the process of running code line by line\n• Saves and uses data like strings and arrays in memory during execution"
       },
       {
-        "question": "What is a thread of execution?",
-        "answer": "Going through code line-by-line and running each line. Saves data like strings & arrays in memory."
+        "question": "What is memory in a program?",
+        "answer": "• A place where data is stored so it can be accessed later"
+      },
+      {
+        "question": "What is an execution context?",
+        "answer": "• The environment created when a function is called\n• Has two parts:\n  1. Thread of execution\n  2. Memory\n• Each function call gets its own execution context\n• Data inside the function's memory can't be accessed outside"
+      },
+      {
+        "question": "What does return do in a function?",
+        "answer": "• Looks up a value in local memory\n• Sends it back to where the function was called"
+      },
+      {
+        "question": "What is the call stack?",
+        "answer": "• Tracks which function is currently running\n• The top of the stack is the current function\n• When a function finishes (return), it is removed from the stack"
+      },
+      {
+        "question": "What is it called when we make a function reusable by using inputs?",
+        "answer": "• Generalising the function\n• Example: using parameters instead of hardcoded values"
       }
     ],
     "multipleChoice": [
       {
-        "question": "What is stored in memory?",
-        "options": ["Instructions", "Data", "Syntax", "Keywords"],
-        "correctAnswer": "Data"
+        "question": "What is the thread of execution?",
+        "options": ["The process of executing code line by line", "The structure used to store data", "A way to loop through functions", "The memory area where variables are stored"],
+        "correctAnswer": "The process of executing code line by line"
+      },
+      {
+        "question": "Where is data stored during code execution?",
+        "options": ["The execution context", "The thread of execution", "Memory", "The call stack"],
+        "correctAnswer": "Memory"
+      },
+      {
+        "question": "What does an execution context contain?",
+        "options": ["Just a memory space", "A thread of execution and memory", "Only the variables defined in the main scope", "A list of all functions in the code"],
+        "correctAnswer": "A thread of execution and memory"
+      },
+      {
+        "question": "What happens when a function is called?",
+        "options": ["It is pushed to the memory stack", "A new execution context is created", "The entire program restarts", "It replaces the current thread of execution"],
+        "correctAnswer": "A new execution context is created"
+      },
+      {
+        "question": "What does the return keyword do?",
+        "options": ["Pushes the result into the call stack", "Stores the result in memory permanently", "Sends a value from the function back to the caller", "Stops the execution of the whole program"],
+        "correctAnswer": "Sends a value from the function back to the caller"
+      },
+      {
+        "question": "What is the purpose of the call stack?",
+        "options": ["To store variables and constants", "To track what function is currently running", "To hold the values returned from functions", "To assign memory to new variables"],
+        "correctAnswer": "To track what function is currently running"
+      },
+      {
+        "question": "What is generalising a function?",
+        "options": ["Creating a function that runs automatically", "Using return instead of console.log", "Making the function reusable by using parameters", "Declaring the function globally"],
+        "correctAnswer": "Making the function reusable by using parameters"
       }
     ],
     "fillInTheGap": [
       {
-        "sentence": "The ____ of execution runs code line by line.",
-        "gaps": ["thread"]
+        "sentence": "Every time a function is called, a new ____ is created. It contains both a ____ of execution and a block of ____ used to store function-specific data.",
+        "gaps": ["execution context", "thread", "memory"],
+        "options": ["call stack", "memory", "execution context", "thread", "parameter", "return"]
       },
       {
-        "sentence": "A constant called ____ is assigned the number 3.",
-        "gaps": ["num"]
+        "sentence": "The ____ keeps track of which function is currently running. When a function ____, its execution context is ____ from the stack.",
+        "gaps": ["call stack", "returns", "removed"],
+        "options": ["heap", "removed", "call stack", "enters", "returns", "stored"]
+      },
+      {
+        "sentence": "Replacing hard-coded values with ____ allows functions to be ____, so they can work with different inputs called ____.",
+        "gaps": ["parameters", "reused", "arguments"],
+        "options": ["arguments", "constants", "reused", "functions", "parameters", "returned"]
+      },
+      {
+        "sentence": "When a function executes a ____ statement, it looks up the result in ____ memory and sends it back to the place where the function was ____.",
+        "gaps": ["return", "local", "called"],
+        "options": ["called", "defined", "return", "stored", "local", "stacked"]
       }
     ],
     "codeWalkthrough": [
@@ -33,28 +91,56 @@
           {
             "code": "const num = 3;",
             "explanation": [
-              "1. Define a constant called `num`.",
-              "2. Assign the number `3` to it."
+              "Define a constant called num",
+              "Assign the number 3 to num"
             ]
           },
           {
             "code": "function multiplyBy2(inputNumber) {",
             "explanation": [
-              "1. Declare a function named `multiplyBy2` with one parameter `inputNumber`.",
-              "2. This function is stored in memory at runtime."
+              "Define a function called multiplyBy2",
+              "Add a parameter called inputNumber",
+              "Store the function in memory",
+              "When called, create a new Execution Context"
             ]
           },
           {
-            "code": "const result = inputNumber * 2;",
+            "code": "  const result = inputNumber * 2;",
             "explanation": [
-              "1. Multiply the input number by 2.",
-              "2. Store the result in a constant called `result`."
+              "Multiply inputNumber by 2",
+              "Store the result in a constant called result"
             ]
           },
           {
-            "code": "return result;",
+            "code": "  return result;",
             "explanation": [
-              "1. Return the value stored in `result` to the caller."
+              "Return the value stored in result",
+              "Remove this Execution Context from the Call Stack"
+            ]
+          },
+          {
+            "code": "}",
+            "explanation": [
+              "End of function definition"
+            ]
+          },
+          {
+            "code": "const output = multiplyBy2(num);",
+            "explanation": [
+              "Declare a constant called output",
+              "Call multiplyBy2 with the argument num",
+              "multiplyBy2(num) is a command, not stored in memory",
+              "Execute the function and assign the returned value to output"
+            ]
+          },
+          {
+            "code": "const newOutput = multiplyBy2(10);",
+            "explanation": [
+              "Declare a constant called newOutput",
+              "Call multiplyBy2 with the argument 10",
+              "Create a new Execution Context",
+              "Multiply 10 by 2 and return the result",
+              "Assign the returned value to newOutput"
             ]
           }
         ]

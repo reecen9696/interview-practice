@@ -33,7 +33,7 @@ export default function CodeWalkthrough({ codeWalkthrough }: CodeWalkthroughProp
   const someExpanded = Object.values(expandedLines).some(Boolean);
 
   return (
-    <div className="mb-6 p-6 bg-white rounded-lg shadow-md border border-gray-600">
+    <div className="mb-6 p-6 bg-white rounded-lg shadow-2xl drop-shadow-2xl">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-gray-800">
           Code Walkthrough
@@ -42,7 +42,7 @@ export default function CodeWalkthrough({ codeWalkthrough }: CodeWalkthroughProp
           {!allExpanded && (
             <button
               onClick={expandAll}
-              className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              className="px-3 py-1 text-sm bg-[#1E1C8B] text-white rounded hover:bg-[#16155C] transition-colors"
             >
               Expand All
             </button>
@@ -79,7 +79,7 @@ export default function CodeWalkthrough({ codeWalkthrough }: CodeWalkthroughProp
 
       <div className="space-y-4">
         {codeWalkthrough.codeLines.map((codeLine, lineIndex) => (
-          <div key={lineIndex} className="border border-gray-600 rounded-lg overflow-hidden">
+          <div key={lineIndex} className="rounded-lg overflow-hidden shadow-lg">
             {/* Code Line */}
             <div className="bg-gray-900 text-gray-100 p-4 font-mono text-sm">
               <div className="flex items-center">

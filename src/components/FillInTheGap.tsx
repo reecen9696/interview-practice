@@ -16,13 +16,13 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
   const parts = fillInTheGap.sentence.split('____');
   const numberOfGaps = parts.length - 1;
 
-  // Create available words (gaps + some distractors)
-  const availableWords = [...fillInTheGap.gaps];
+  // Use provided options or fall back to gaps + distractors for backward compatibility
+  const availableWords = fillInTheGap.options || [
+    ...fillInTheGap.gaps,
+    'variable', 'function', 'loop', 'array'
+  ];
   
-  // Add some distractor words
-  const distractors = ['variable', 'function', 'loop', 'array'];
-  const shuffledWords = [...availableWords, ...distractors.slice(0, Math.min(2, 4 - availableWords.length))]
-    .sort(() => Math.random() - 0.5);
+  const shuffledWords = [...availableWords].sort(() => Math.random() - 0.5);
 
   const handleDragStart = (word: string) => {
     draggedRef.current = word;
@@ -75,7 +75,7 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
   };
 
   return (
-    <div className="mb-6 p-6 bg-white rounded-lg shadow-md border border-gray-600">
+    <div className="mb-6 p-6 bg-white rounded-lg shadow-2xl drop-shadow-2xl">
       <h3 className="text-lg font-semibold mb-4 text-gray-800">
         Fill in the gaps
       </h3>
@@ -125,7 +125,7 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
                 key={index}
                 draggable
                 onDragStart={() => handleDragStart(word)}
-                className="px-3 py-1 bg-blue-500 text-white rounded-lg cursor-move hover:bg-blue-600 transition-colors select-none"
+                className="px-3 py-1 bg-[#1E1C8B] text-white rounded-lg cursor-move hover:bg-[#16155C] transition-colors select-none"
               >
                 {word}
               </span>
@@ -137,7 +137,7 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
       {Object.keys(droppedWords).length === numberOfGaps && !showResult && (
         <button
           onClick={checkAnswers}
-          className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+          className="px-4 py-2 bg-[#4255FF] text-white rounded-lg hover:bg-[#3644CC] transition-colors"
         >
           Check Answers
         </button>
@@ -151,7 +151,7 @@ export default function FillInTheGap({ fillInTheGap }: FillInTheGapProps) {
           </p>
           <button
             onClick={resetQuestion}
-            className="mt-3 mx-auto block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            className="mt-3 mx-auto block px-4 py-2 bg-[#4255FF] text-white rounded-lg hover:bg-[#3644CC] transition-colors"
           >
             Try Again
           </button>

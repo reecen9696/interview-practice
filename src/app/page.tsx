@@ -19,7 +19,7 @@ export default function Home() {
   const currentTopic = typedQuestionsData[activeTab];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white">
       <Navbar 
         topics={topics}
         activeTab={activeTab}
@@ -28,13 +28,13 @@ export default function Home() {
 
       {/* Question Type Selector */}
       <div className="max-w-6xl mx-auto px-4 py-6">
-        <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="bg-white rounded-lg shadow-2xl drop-shadow-2xl p-6">
           <div className="flex space-x-4 mb-6">
             <button
               onClick={() => setActiveQuestionType('flashcards')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeQuestionType === 'flashcards'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#1E1C8B] text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -44,7 +44,7 @@ export default function Home() {
               onClick={() => setActiveQuestionType('multipleChoice')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeQuestionType === 'multipleChoice'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#1E1C8B] text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -54,7 +54,7 @@ export default function Home() {
               onClick={() => setActiveQuestionType('fillInTheGap')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeQuestionType === 'fillInTheGap'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#1E1C8B] text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -64,7 +64,7 @@ export default function Home() {
               onClick={() => setActiveQuestionType('codeWalkthrough')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeQuestionType === 'codeWalkthrough'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#1E1C8B] text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
